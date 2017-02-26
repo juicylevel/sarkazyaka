@@ -1,0 +1,59 @@
+/*http://bootsnipp.com/snippets/featured/red-profile-and-login-panel*/
+.login-box {
+    background-color: rgb(65, 171, 225);
+    color: white;
+    width: 360px;
+    margin: 0px auto;
+}
+
+.line {
+    border-bottom : 2px solid #358db9;
+}
+
+.image-circle {
+    margin-top: 10px;
+}
+
+.counter-box {
+    background-color: #48b4ea;
+}
+
+.counter-label span {
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.form-box {
+    background-color: #f8f8f8;
+    color: #555;
+}
+
+.login-box .label {
+    color: #EB4F26;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.login-box .form-control{
+    color: #000000 !important;
+    font-size: 25px;
+    border: none;
+    padding: 25px;
+    padding-left: 10px;
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 10px;
+    outline: none;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.login-box .form-control:focus {
+    border-radius: 0px;
+    border-bottom: 1px solid #FC563B;
+    margin-bottom: 10px;
+    outline: none;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+}

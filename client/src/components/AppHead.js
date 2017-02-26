@@ -1,15 +1,16 @@
 import React, { PropTypes } from 'react';
+import { Link, browserHistory } from 'react-router';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
 import IconLabel from './IconLabel';
 
 const AppHead = () => (
-    <Navbar collapseOnSelect>
+    <Navbar fixedTop collapseOnSelect>
         <Navbar.Header>
             <Navbar.Brand>
-                <a href="#">
+                <Link to="/">
                     <img src="/nicolas-sarkozy-header.png" alt="#сарказяка" />
-                </a>
+                </Link>
                 <span>#сарказяка</span>
             </Navbar.Brand>
             <Navbar.Toggle />
@@ -21,7 +22,9 @@ const AppHead = () => (
                     <MenuItem>Мои</MenuItem>
                 </NavDropdown>
                 <NavItem href="#">{<IconLabel icon="fa-plus-square" text="Новая" />}</NavItem>
-                <NavItem href="#">{<IconLabel icon="fa-tags" text="Тэги" />}</NavItem>
+                <NavItem href="#" onClick={() => browserHistory.push('/tags')}>
+                    {<IconLabel icon="fa-tags" text="Тэги" />}
+                </NavItem>
             </Nav>
         </Navbar.Collapse>
     </Navbar>

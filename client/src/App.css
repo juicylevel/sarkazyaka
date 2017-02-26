@@ -45,4 +45,11 @@
     background-color: white;
 }
 
+.row-centered {
+    text-align:center;
+}
+
 /* app styles */
+.page-container {
+    margin-top: 80px;
+}
