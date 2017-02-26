@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const Tags = () => (
-    <div>Tags</div>
+    <h2>Tags</h2>
 );
 
 export default Tags;
