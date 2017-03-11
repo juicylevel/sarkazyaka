@@ -1,14 +1,19 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import { browserHistory } from 'react-router';
 
-const IconLabel = ({ icon, text }) => (
-    <span>
-        <span className={ 'fa ' + icon } /> { text }
-    </span>
-);
+const handleClick = (href) => {
+    if (href) {
+        browserHistory.push(href);
+    }
+};
 
-IconLabel.propTypes = {
-    icon: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired
+const IconLabel = ({ icon, text, href }) => { 
+    const className = icon ? 'fa fa-' + icon : null;
+    return (
+        <span onClick={ () => handleClick(href) }>
+            <span className={ className } /> { text }
+        </span>
+    )
 };
 
 export default IconLabel;

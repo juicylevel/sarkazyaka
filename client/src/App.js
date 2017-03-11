@@ -4,14 +4,16 @@ import 'font-awesome/css/font-awesome.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
-import AppHead from './components/AppHead';
+import AppHeader from './components/AppHeader';
+import TagEditorWindow from './components/tags/TagEditorWindow';
 
 const App = ({ children }) => (
     <div>
-        <AppHead />
+        <AppHeader />
         <div className="page-container">
             {children}
         </div>
+        <TagEditorWindow show={true} title="Создание тэга" />
     </div> 
 )
 

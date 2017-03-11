@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import '../css/login.css';
 
@@ -41,9 +41,5 @@ const Login = () => (
        
     </Row>
 );
-
-Login.propTypes = {
-
-};
 
 export default Login;

@@ -1,10 +1,11 @@
 /* override bootstrap theme */
+
 .navbar {
     border-radius: 0px;
     border-top-width: 0px;
     border-left-width: 0px;
     border-right-width: 0px;
-    background-color: rgb(65, 171, 225);
+    background-color: #00a8e8;
     line-height: 0px;
 }
 
@@ -50,6 +51,16 @@
 }
 
 /* app styles */
+
 .page-container {
     margin: 80px 20px;
+}
+
+/* form */
+
+.color-field-sketch {
+    border: 1px solid #CCCCCC;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
 }
