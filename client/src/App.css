@@ -50,6 +50,31 @@
     text-align:center;
 }
 
+/* common */
+
+.field-label-align-top {
+    padding-bottom: 6px;
+}
+
+.field-label-align-left {
+    padding-top: 6px;
+}
+
+.field-help {
+    cursor: pointer;
+}
+
+.help-popover {
+    max-width: 250px;
+}
+
+.field-required {
+    color: #CC0000;
+    font-size: 7px;
+    padding-left: 3px;
+    vertical-align: super;
+}
+
 /* app styles */
 
 .page-container {
@@ -60,7 +85,8 @@
 
 .color-field-sketch {
     border: 1px solid #CCCCCC;
-    width: 24px;
-    height: 24px;
+    border-radius: 4px;
+    width: 34px;
+    height: 34px;
     cursor: pointer;
 }
