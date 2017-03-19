@@ -6,9 +6,11 @@
     "react-scripts": "0.9.0"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
     "moment": "^2.17.1",
+    "normalizr": "^3.2.2",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.7",
     "react-bootstrap-maskedinput": "^0.2.1",

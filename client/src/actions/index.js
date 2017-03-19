@@ -1,3 +1,5 @@
+import _ from 'lodash';
+import * as api from '../api';
 import * as types from '../constants/ActionTypes';
 
 export const getRecords = () => {
@@ -5,6 +7,11 @@ export const getRecords = () => {
         dispatch({
             type: types.GET_RECORDS_REQUEST
         });
+
+        api.getAllTags().then((tags) => {
+            console.log('tags', tags);
+        });
+
         console.log('выполняется запрос getRecords...');
         setTimeout(() => {
             const records = [];
@@ -22,3 +29,22 @@ export const getRecords = () => {
         }, 5000);
     }
 };
+
+export const fetchTags = () => {
+    return dispatch => {
+        api.getAllTags().then((tags) => {
+            dispatch({ type: types.RECEIVE_ALL_TAGS, tags: tags });
+        });
+    }
+}
+
+export const editTag = (id) => {
+    return (dispatch, getState) => {
+        const tag = _.find(getState().tags, tag => tag.id === id);
+        tag && dispatch({ type: types.EDIT_TAG, tag: tag });
+    }
+}
+
+export const completeEditTag = () => ({
+    type: types.COMPLETE_EDIT_TAG
+});

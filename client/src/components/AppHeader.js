@@ -22,7 +22,7 @@ const AppHeader = () => (
                     <MenuItem>Мои</MenuItem>
                 </NavDropdown>
                 <NavItem href="#">{<IconLabel icon="plus-square" text="Новая" />}</NavItem>
-                <NavDropdown id="tags-dropdown" title={<IconLabel icon="tags" text="Тэги" />}>
+                <NavDropdown id="tags-dropdown" title={<IconLabel icon="tags" text="Темы" />}>
                     <MenuItem>
                         <IconLabel icon="list" text="Показать все" href="/tags" />
                     </MenuItem>
