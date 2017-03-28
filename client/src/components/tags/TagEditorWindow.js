@@ -3,7 +3,7 @@ import { Modal, Button } from 'react-bootstrap';
 
 import TagForm from './TagForm';
 
-const TagEditorWindow = ({ tag, show, title, onClose }) => (
+const TagEditorWindow = ({ tag, show, title, onSave, onClose }) => (
     <Modal show={ show } onHide={ onClose }>
         <Modal.Header closeButton>
             <Modal.Title>{ title }</Modal.Title>
@@ -12,6 +12,7 @@ const TagEditorWindow = ({ tag, show, title, onClose }) => (
             <TagForm tag={ tag } />
         </Modal.Body>
         <Modal.Footer>
+            <Button onClick={ onSave }>Сохранить</Button>
             <Button onClick={ onClose }>Отмена</Button>
         </Modal.Footer>
     </Modal>

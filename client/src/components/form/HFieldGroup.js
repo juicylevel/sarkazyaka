@@ -5,11 +5,11 @@ import HelpBox from './HelpBox';
 const HFieldGroup = ({ label, help, required, message, validationState, children }) => (
     <FormGroup validationState={ validationState }>
         <Row>
-            <Col sm={2} className="field-label-align-left">
+            <Col sm={3} className="field-label-align-left">
                 { label }
                 { required && <i className="fa fa-asterisk field-required" /> }
             </Col>
-            <Col sm={10}>
+            <Col sm={9}>
                 { help ? <HelpBox help={ help }>{ children }</HelpBox> : children }
                 { message && <HelpBlock>{ message }</HelpBlock> }
             </Col>

@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, initialize } from 'redux-form';
 
 import FormField from '../form/FormField';
-import { FormControl } from 'react-bootstrap';
-import MaskedInput from 'react-bootstrap-maskedinput';
-import ColorField from '../form/ColorField';
+import themeFormConfig from './themeFormConfig';
 
 const validate = (values) => {
     const errors = {};
@@ -18,8 +16,9 @@ class TagForm extends Component {
     render () { 
         return (
             <form>
-                <FormField name="name" label="Наименование" cmp={ FormControl } required={ true } help="Введите ФИОВведите ФИОВведите ФИОВведите ФИОВведите ФИО Введите ФИО Введите ФИО Введите ФИО Введите ФИО" />
-                <FormField name="color" label="Цвет" cmp={ ColorField } />
+                <FormField { ...themeFormConfig.name } />
+                <FormField { ...themeFormConfig.color } />
+                <FormField { ...themeFormConfig.number } />
             </form>
         );
     }
