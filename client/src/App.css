@@ -50,6 +50,15 @@
     text-align:center;
 }
 
+.has-error .rw-widget {
+    border: 1px solid #a94442;
+}
+
+.rw-widget {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
 /* common */
 
 .field-label-align-top {

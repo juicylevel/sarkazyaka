@@ -1,8 +1,15 @@
 import { FormControl } from 'react-bootstrap';
+import { DropdownField, DateTimeField } from '../form/ReactWidgets';
 import ColorField from '../form/ColorField';
 import NumberField from '../form/NumberField';
 
 import * as v from '../../utils/validation';
+
+import moment from 'moment';
+import momentLocaliser from 'react-widgets/lib/localizers/moment';
+
+moment.locale('ru');
+momentLocaliser(moment);
 
 const themeFormConfig = {
     name: {
@@ -42,6 +49,47 @@ const themeFormConfig = {
         cmp: FormControl,
         componentClass: 'textarea',
         maxLength: 210
+    },
+    select: {
+        name: 'select',
+        label: 'Выбор из списка',
+        help: 'Выберите цифру из списка',
+        required: true,
+        cmp: DropdownField,
+        valueField: 'value',
+        textField: 'name',
+        data: [{ 
+            name: '5', 
+            value: 5
+        }, { 
+            name: '4', 
+            value: 4
+        }, { 
+            name: '3', 
+            value: 3
+        }, { 
+            name: '2', 
+            value: 2
+        }, { 
+            name: '1', 
+            value: 1
+        }],
+        validate: [
+            v.required('Нужно ввести число')
+        ]
+    },
+    date: {
+        name: 'date',
+        label: 'Дата',
+        placeholder: 'ДД.ММ.ГГГГ',
+        help: 'Дата в формате DD.MM.YYYY',
+        required: true,
+        cmp: DateTimeField,
+        showTime: false,
+        parse: str => moment(str).format('YYYY-MM-DD'),
+        validate: [
+            v.required('Дату необходимо заполнить')
+        ]
     }
 };
 

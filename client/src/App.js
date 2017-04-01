@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import 'font-awesome/css/font-awesome.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'react-widgets/dist/css/react-widgets.css';
 import './App.css';
 
 import { completeEditTag } from './actions';

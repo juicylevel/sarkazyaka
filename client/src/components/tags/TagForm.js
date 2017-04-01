@@ -12,6 +12,23 @@ const validate = (values) => {
     return errors;
 };
 
+const data = [{ 
+            name: '5', 
+            value: 5
+        }, { 
+            name: '4', 
+            value: 4
+        }, { 
+            name: '3', 
+            value: 3
+        }, { 
+            name: '2', 
+            value: 2
+        }, { 
+            name: '1', 
+            value: 1
+        }];
+
 class TagForm extends Component {
     render () { 
         return (
@@ -19,7 +36,9 @@ class TagForm extends Component {
                 <FormField { ...themeFormConfig.name } />
                 <FormField { ...themeFormConfig.color } />
                 <FormField { ...themeFormConfig.number } />
-                <FormField { ...themeFormConfig.bigtext} />
+                <FormField { ...themeFormConfig.bigtext } />
+                <FormField { ...themeFormConfig.select } />
+                <FormField { ...themeFormConfig.date } />
             </form>
         );
     }
