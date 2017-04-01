@@ -9,7 +9,7 @@ const renderField = (props) => {
     const FieldGroup = !labelAlign || labelAlign === 'left' ? HFieldGroup : VFieldGroup;
     const hasError = meta.error && meta.touched;
     let message, validationState;
-
+console.log('rest', rest);
     if (meta.error && meta.touched) {
         message = meta.error; 
         validationState = 'error';

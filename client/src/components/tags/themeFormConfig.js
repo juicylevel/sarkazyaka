@@ -1,5 +1,6 @@
 import { FormControl } from 'react-bootstrap';
 import ColorField from '../form/ColorField';
+import NumberField from '../form/NumberField';
 
 const themeFormConfig = {
     name: {
@@ -21,7 +22,8 @@ const themeFormConfig = {
         placeholder: 'введите число',
         help: 'Число должно быть чётным',
         required: true,
-        cmp: FormControl // TODO: Numeric
+        cmp: NumberField,
+        maxLength: 10
     }
 };
 
