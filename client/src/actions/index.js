@@ -41,7 +41,7 @@ export const fetchTags = () => {
 export const editTag = (id) => {
     return (dispatch, getState) => {
         const tag = _.find(getState().tags, tag => tag.id === id);
-        tag && dispatch({ type: types.EDIT_TAG, tag: { ...tag, select: 3/*, date: '2017-03-11'*/ } });
+        tag && dispatch({ type: types.EDIT_TAG, tag: { ...tag, select: 3, date: '2017-03-11' } });
     }
 }
 

@@ -86,6 +86,7 @@ const themeFormConfig = {
         required: true,
         cmp: DateTimeField,
         showTime: false,
+        isRtl: true,
         parse: str => moment(str).format('YYYY-MM-DD'),
         validate: [
             v.required('Дату необходимо заполнить')
