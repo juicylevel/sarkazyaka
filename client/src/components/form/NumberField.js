@@ -10,7 +10,7 @@ class NumberField extends Component {
     }
 
     render () {
-        const { maxLength } = this.props;
+        const { maxLength, onChange, onFocus, onBlur } = this.props;
         const { value } = this.state;
 
         return (
@@ -19,6 +19,8 @@ class NumberField extends Component {
                 className="form-control" 
                 value={ value } 
                 onChange={ this.handleChange } 
+                onFocus={ onFocus }
+                onBlur={ onBlur }
                 maxLength={ maxLength }
             />
         );
@@ -26,9 +28,11 @@ class NumberField extends Component {
 
     handleChange = (event) => {
         const newValue = event.target.value;
-        
+        const { onChange } = this.props;
+
         if (newValue === '' || this.checkValue(newValue)) {
             this.setState({ value: newValue });
+            onChange(event);
         }
     }
 

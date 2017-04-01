@@ -19,6 +19,7 @@ class TagForm extends Component {
                 <FormField { ...themeFormConfig.name } />
                 <FormField { ...themeFormConfig.color } />
                 <FormField { ...themeFormConfig.number } />
+                <FormField { ...themeFormConfig.bigtext} />
             </form>
         );
     }
