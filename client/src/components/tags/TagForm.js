@@ -6,6 +6,7 @@ import themeFormConfig from './themeFormConfig';
 
 const validate = (values) => {
     const errors = {};
+    console.log('validate values', values);
     if (!values.name) {
         errors.name = 'Наименование надо заполнить';
     }
@@ -44,10 +45,10 @@ class TagForm extends Component {
         );
     }
 
-    componentDidMount () {
+    /*componentDidMount () {
         const { tag, initialize } = this.props;
         initialize(tag);
-    }
+    }*/
 }
 
 export default reduxForm({

@@ -18,10 +18,10 @@ const themeFormConfig = {
         placeholder: 'введите наименование темы',
         help: 'Наименование темы должно выражать основную суть сарказяк',
         required: true,
-        cmp: FormControl,
+        cmp: FormControl/*,
         validate: [
             v.required('Наименование не заполнено')
-        ]
+        ]*/
     },
     color: {
         name: 'color',
@@ -35,11 +35,11 @@ const themeFormConfig = {
         help: 'ИНН должен состоять из 10, 15 или 20 чисел',
         required: true,
         cmp: NumberField,
-        maxLength: 12,
+        maxLength: 12/*,
         validate: [
             v.required('ИНН необходимо заполнить'),
             v.taxId('ИНН должен состоять из 10 или 12 чисел')
-        ]
+        ]*/
     },
     bigtext: {
         name: 'bigtext',
@@ -73,10 +73,10 @@ const themeFormConfig = {
         }, { 
             name: '1', 
             value: 1
-        }],
+        }]/*,
         validate: [
             v.required('Нужно ввести число')
-        ]
+        ]*/
     },
     date: {
         name: 'date',
@@ -87,10 +87,10 @@ const themeFormConfig = {
         cmp: DateTimeField,
         showTime: false,
         isRtl: true,
-        parse: str => moment(str).format('YYYY-MM-DD'),
+        parse: str => moment(str).format('YYYY-MM-DD')/*,
         validate: [
             v.required('Дату необходимо заполнить')
-        ]
+        ]*/
     },
     switch: {
         name: 'switch',

@@ -8,13 +8,19 @@ import { connect } from 'react-redux'
 import { submit } from 'redux-form'
 //
 
-const TagEditorWindow = ({ tag, show, title, onSave, onClose, dispatch }) => (
+const EditThemeForm = connect(
+    state => ({
+        initialValues: state.editedTag
+    })
+)(TagForm);
+
+const TagEditorWindow = ({ tag, show, title, onSave, onClose, handleChange, dispatch }) => (
     <Modal show={ show } onHide={ onClose }>
         <Modal.Header closeButton>
             <Modal.Title>{ title }</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <TagForm tag={ tag } onSubmit={ (values) => console.log(values) } />
+            <EditThemeForm onSubmit={ (values) => console.log('submit', values) } onChange={ handleChange } />
         </Modal.Body>
         <Modal.Footer>
             <Button onClick={ () => dispatch(submit('tagForm')) }>Сохранить</Button>
@@ -23,4 +29,15 @@ const TagEditorWindow = ({ tag, show, title, onSave, onClose, dispatch }) => (
     </Modal>
 );
 
-export default connect()(TagEditorWindow);
+const mapStateToProps = (state) => ({
+    editedTag: state.editedTag
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    handleChange: (values, d, props) => {
+        console.log('handleChange');
+        dispatch(submit('tagForm'));
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TagEditorWindow);
