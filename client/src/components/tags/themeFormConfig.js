@@ -1,5 +1,5 @@
 import { FormControl } from 'react-bootstrap';
-import { DropdownField, DateTimeField } from '../form/ReactWidgets';
+import { DropdownField, DateTimeField, SwitchField } from '../form/ReactWidgets';
 import ColorField from '../form/ColorField';
 import NumberField from '../form/NumberField';
 
@@ -91,6 +91,16 @@ const themeFormConfig = {
         validate: [
             v.required('Дату необходимо заполнить')
         ]
+    },
+    switch: {
+        name: 'switch',
+        label: 'Переключатель',
+        cmp: SwitchField,
+        onText: 'Вкл.',
+        offText: 'Выкл.',
+        onColor: 'success',
+        offColor: 'default',
+        width: 70
     }
 };
 
