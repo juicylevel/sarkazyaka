@@ -4,19 +4,15 @@ class NumberField extends Component {
     numericRegEx = /^[0-9]\d*$/i;
     numberRegEx = /^\d*\.?\d*$/i;
 
-    constructor (props) {
-        super(props);
-        this.state = { value: '' };
-    }
-
     render () {
-        const { maxLength, onChange, onFocus, onBlur } = this.props;
-        const { value } = this.state;
+        const { value, placeholder, maxLength, onChange, onFocus, onBlur } = this.props;
 
         return (
             <input 
+                ref={ input => { this.input = input } }
                 type="text" 
                 className="form-control" 
+                placeholder={ placeholder }
                 value={ value } 
                 onChange={ this.handleChange } 
                 onFocus={ onFocus }
@@ -31,7 +27,7 @@ class NumberField extends Component {
         const { onChange } = this.props;
 
         if (newValue === '' || this.checkValue(newValue)) {
-            this.setState({ value: newValue });
+            this.input.value = newValue;
             onChange(event);
         }
     }

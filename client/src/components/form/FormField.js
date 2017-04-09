@@ -10,7 +10,7 @@ const renderField = (props) => {
     const hasError = meta.error && meta.touched;
     let message, validationState;
 
-    if (meta.error && meta.touched) {
+    if (hasError) {
         message = meta.error; 
         validationState = 'error';
     }
