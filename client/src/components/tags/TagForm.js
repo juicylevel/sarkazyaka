@@ -10,6 +10,11 @@ const validate = (values) => {
     if (!values.name) {
         errors.name = 'Наименование надо заполнить';
     }
+
+    if (values.docDate && !/^(\d{4})-(\d{2})-(\d{2})/i.test(values.docDate)) {
+        errors.docDate = 'Некорректная дата';
+    }
+
     return errors;
 };
 

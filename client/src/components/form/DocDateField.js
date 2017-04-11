@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { FormControl } from 'react-bootstrap';
-import * as utils from '../../utils';
 import MaskedFormControl from 'react-bootstrap-maskedinput';
-
-import moment from 'moment';
+import * as utils from '../../utils';
 
 const isoRegexp = /^(\d{4})-(\d{2})-(\d{2})/i;
 const ddmmyyyyRegexp = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[012])\.(19|20)\d\d/i;
@@ -14,9 +12,7 @@ const parseToDisplayValue = (value) => {
     if (!utils.isEmpty(value) && isoRegexp.test(value)) {
         const splitedValue = value.split('-');
         result = splitedValue[2] + '.' + splitedValue[1] + '.' + splitedValue[0];
-    }
-
-    if (value === '0') {
+    } else {
         result = value;
     }
 
@@ -30,7 +26,7 @@ const parseToISO = (value) => {
 
 class DocDateField extends Component {
     render () {
-        const { onChange, value, placeholder } = this.props;
+        const { value, placeholder, onChange, onFocus, onBlur } = this.props;
         const displayDateInput = value !== '0';
         const displayZeroField = !displayDateInput;
         const switchText = displayDateInput ? 'нет даты' : 'ввести дату';
@@ -45,7 +41,8 @@ class DocDateField extends Component {
                     mask='11.11.1111' 
                     placeholder={ placeholder } 
                     value={ displayValue }
-                    onChange={ value => {} }
+                    onChange={ this.handleChange }
+                    onFocus={ this.handleFocus }
                     onBlur={ this.handleBlur }
                 />
                 }
@@ -64,23 +61,32 @@ class DocDateField extends Component {
         );
     }
 
-    handleBlur = (event) => {
-        const { onChange } = this.props;
-        const input = event.target;
-        const newValue = input.value;
-        
-        if (ddmmyyyyRegexp.test(newValue)) {
-            const outDate = parseToISO(newValue);
-            onChange(outDate);
-        } else {
-            onChange('');
-            input.value = '';
-        }
-    }
-
     handleSwitch = () => {
         const { value, onChange } = this.props;
         value !== '0' ? onChange('0') : onChange('');
+    }
+
+    handleChange = (event) => {
+        this.handleChangeValue(event, this.props.onChange);
+    }
+
+    handleFocus = (event) => {
+        this.handleChangeValue(event, this.props.onFocus);
+    }
+
+    handleBlur = (event) => {
+        this.handleChangeValue(event, this.props.onBlur);
+    }
+
+    handleChangeValue = (event, fieldHandler) => {
+        const newValue = event.target.value;
+        
+        if (ddmmyyyyRegexp.test(newValue)) {
+            const outDate = parseToISO(newValue);
+            fieldHandler(outDate);
+        } else {
+            fieldHandler(newValue);
+        }
     }
 }
 

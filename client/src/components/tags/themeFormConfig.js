@@ -110,7 +110,8 @@ const themeFormConfig = {
         required: true,
         cmp: DocDateField,
         validate: [
-            v.required('Нужно ввести дату')
+            v.required('Нужно ввести дату')/*,
+            v.docDate()*/
         ]
     }
 };
