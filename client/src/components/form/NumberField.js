@@ -5,7 +5,7 @@ class NumberField extends Component {
     numberRegEx = /^\d*\.?\d*$/i;
 
     render () {
-        const { value, placeholder, maxLength, onChange, onFocus, onBlur } = this.props;
+        const { value, placeholder, maxLength, style, onChange, onFocus, onBlur } = this.props;
 
         return (
             <input 
@@ -18,6 +18,7 @@ class NumberField extends Component {
                 onFocus={ onFocus }
                 onBlur={ onBlur }
                 maxLength={ maxLength }
+                style={ style }
             />
         );
     }

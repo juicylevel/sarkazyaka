@@ -41,6 +41,7 @@ class TagForm extends Component {
                 <FormField { ...themeFormConfig.select } />
                 <FormField { ...themeFormConfig.date } />
                 <FormField { ...themeFormConfig.switch } />
+                <FormField { ...themeFormConfig.docDate } />
             </form>
         );
     }

@@ -2,6 +2,7 @@ import { FormControl } from 'react-bootstrap';
 import { DropdownField, DateTimeField, SwitchField } from '../form/ReactWidgets';
 import ColorField from '../form/ColorField';
 import NumberField from '../form/NumberField';
+import DocDateField from '../form/DocDateField';
 
 import * as v from '../../utils/validation';
 
@@ -86,7 +87,6 @@ const themeFormConfig = {
         required: true,
         cmp: DateTimeField,
         showTime: false,
-        isRtl: true,
         parse: str => moment(str).format('YYYY-MM-DD')/*,
         validate: [
             v.required('Дату необходимо заполнить')
@@ -101,6 +101,17 @@ const themeFormConfig = {
         onColor: 'success',
         offColor: 'default',
         width: 70
+    },
+    docDate: {
+        name: 'docDate',
+        label: 'Ввод даты',
+        placeholder: 'ДД.ММ.ГГГГ',
+        help: 'Дата в формате DD.MM.YYYY',
+        required: true,
+        cmp: DocDateField,
+        validate: [
+            v.required('Нужно ввести дату')
+        ]
     }
 };
 
