@@ -1,26 +1,12 @@
 import axios from 'axios';
 
 const API_HOST = 'http://sarkazyaka/';
-const DATA_FIELDS = { GET: 'params', POST: 'data' };
 
-export const getAllTags = () => (
-    request('GET', { request: 'getAllTags', limit: 10, offset: 0 })
-);
-
-export const createTag = (tag) => (
-    request('POST', { request: 'createTag', ...tag })
-);
-
-export const updateTag = (tag) => (
-    request('POST', { request: 'updateTag', ...tag })
-);
-
-const request = (method, params = {}) => (
+const request = (config) => (
     new Promise ((resolve, reject) => {
         axios.request({ 
-            method: method, 
-            url: API_HOST,
-            [DATA_FIELDS[method]]: params 
+            ...config, 
+            url: API_HOST
         }).then(response => {
             const resp = response.data;
             if (resp.error) {
@@ -31,5 +17,36 @@ const request = (method, params = {}) => (
                 reject('Error: empty response');
             }
         }, reject);
+    })
+);
+
+export const getAllTags = () => (
+    request({
+        method: 'GET',
+        params: {
+            request: 'getAllTags', 
+            limit: 10, 
+            offset: 0
+        }
+    })
+);
+
+export const createSubject = (subject) => (
+    request({
+        method: 'POST',
+        data: {
+            request: 'createTag', 
+            payload: subject
+        }
+    })
+);
+
+export const updateSubject = (subject) => (
+    request({
+        method: 'POST',
+        data: {
+            request: 'updateTag', 
+            payload: subject
+        }
     })
 );

@@ -1,7 +1,11 @@
 <?php
 
 header('Access-Control-Allow-Origin: *'); 
+header('Access-Control-Allow-Credentials: true'); 
+header('Access-Control-Allow-Methods: GET,HEAD,OPTIONS,POST,PUT'); 
+header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization');
 header('Content-type: application/json; charset=utf-8');
+
 date_default_timezone_set('Europe/Moscow');
 mb_internal_encoding('UTF-8');
 

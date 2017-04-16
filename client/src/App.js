@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -7,33 +6,25 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'react-widgets/dist/css/react-widgets.css';
 import './App.css';
 
-import { completeEditTag } from './actions';
+import AppHeader from './components/nav/AppHeader';
+import SubjectEditorWindow from './components/subject/SubjectEditorWindow';
 
-import AppHeader from './components/AppHeader';
-import TagEditorWindow from './components/tags/TagEditorWindow';
-
-const App = ({ editedTag, handleCloseTagEditor, children }) => (
+const App = ({ subject, children }) => (
     <div>
         <AppHeader />
         <div className="page-container">
             {children}
         </div>
-        <TagEditorWindow 
-            show={ !_.isEmpty(editedTag) } 
-            tag={ editedTag } 
-            title="Редактирование темы" 
-            onClose={ handleCloseTagEditor }
-        />
+        <SubjectEditorWindow show={ subject.display } />
     </div> 
 );
 
-
 const mapStateToProps = (state) => ({
-    editedTag: state.editedTag
+    subject: state.subject
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    handleCloseTagEditor: () => dispatch(completeEditTag())
+    
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

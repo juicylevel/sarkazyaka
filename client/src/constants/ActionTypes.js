@@ -1,7 +1,13 @@
+// records
 export const GET_RECORDS_REQUEST = 'GET_RECORDS_REQUEST';
 export const GET_RECORDS_SUCCESS = 'GET_RECORDS_SUCCESS';
 export const GET_RECORDS_ERROR   = 'GET_RECORDS_ERROR';
 
+// subjects
 export const RECEIVE_ALL_TAGS = 'RECEIVE_ALL_TAGS';
+export const CREATE_SUBJECT = 'CREATE_SUBJECT';
+export const EDIT_SUBJECT = 'EDIT_SUBJECT';
+export const CLOSE_SUBJECT = 'CLOSE_SUBJECT';
+
 export const EDIT_TAG = 'EDIT_TAG';
 export const COMPLETE_EDIT_TAG = 'COMPLETE_EDIT_TAG';

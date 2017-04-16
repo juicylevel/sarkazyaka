@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTags, editTag } from '../../actions';
+import { fetchSubjects, editSubject } from '../../actions/subject';
 import { PageHeader } from 'react-bootstrap';
 import TagsList from './TagsList';
 
 class Tags extends Component {
     render () {
-        const { tags, handleTagEdit } = this.props;
+        const { tags, handleSubjectClick } = this.props;
         return (
             <div>
                 <PageHeader>Темы</PageHeader>
-                <TagsList tags={ tags } onEdit={ handleTagEdit } />
+                <TagsList tags={ tags } onSubjectClick={ handleSubjectClick } />
             </div>
         );
     }
@@ -27,10 +27,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     handleDidMount: () => {
-        dispatch(fetchTags());
+        dispatch(fetchSubjects());
     },
-    handleTagEdit: (id) => {
-        dispatch(editTag(id))
+    handleSubjectClick: (id) => {
+        dispatch(editSubject(id))
     }
 });
 

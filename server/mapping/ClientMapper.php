@@ -99,7 +99,7 @@ class ClientMapper extends Mapper {
     private function formatDate ($dateTime) {
         $result;
         if (!empty($dateTime)) {
-            $result = date('d.m.Y H:i:s',strtotime($dateTime));
+            $result = date('d.m.Y H:i:s', strtotime($dateTime));
         } else {
             $result = $dateTime;
         }

@@ -16,50 +16,46 @@ const coverStyle = {
 
 class ColorField extends Component {
     state = {
-        displayColorPicker: false,
-        color: {
-            r: '241',
-            g: '112',
-            b: '19',
-            a: '1',
-        }
+        displayColorPicker: false
     };
 
     render () {
-        const { displayColorPicker, color } = this.state;
+        const { value } = this.props;
+        const { displayColorPicker } = this.state;
+        const fieldStyle = { 
+            backgroundColor: value 
+        };
 
         return (
-            <div style={{ display: 'inline' }}>
-                <div className="color-field-sketch" style={ this.sketchColorStyle() } onClick={this.handleClick} />
+            <div style={ { display: 'inline' } }>
+                <div className="color-field-sketch" style={ fieldStyle } onClick={ this.handleClick } />
                 { displayColorPicker ? 
                 <div style={ popoverStyle }>
                     <div style={ coverStyle } onClick={ this.handleClose } />
-                    <SketchPicker color={ this.state.color } onChange={ this.handleChange } />
+                    <SketchPicker color={ value } onChange={ this.handleChange } />
                 </div> : null 
                 }
             </div>
         );
-    };
-
-    sketchColorStyle = () => {
-        const { color } = this.state;
-        const rgba = 'rgba(' + color.r + ',' + color.g + ',' + color.b + ',' + color.a + ')';
-        return {
-            backgroundColor: rgba
-        }
-    };
+    }
 
     handleClick = () => {
-        this.setState({ displayColorPicker: !this.state.displayColorPicker })
-    };
+        const { displayColorPicker } = this.props;
+        this.setState({ displayColorPicker: !displayColorPicker })
+    }
+
+    handleChange = (color) => {
+        const { onChange } = this.props;
+        onChange(color.hex);
+    }
 
     handleClose = () => {
         this.setState({ displayColorPicker: false })
-    };
+    }
+}
 
-    handleChange = (color) => {
-        this.setState({ color: color.rgb })
-    };
+ColorField.defaultProps = {
+    value: '#CC0000'
 }
 
 export default ColorField;

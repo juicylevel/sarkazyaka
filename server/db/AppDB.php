@@ -141,7 +141,7 @@ class AppDB extends DBWrapper {
      *
      * @param $tag array Данные обновляемого тэга.
      */
-    public function updatedTag ($tag) {
+    public function updateTag ($tag) {
         $this->update('tag', $tag);
     }
 
@@ -151,7 +151,7 @@ class AppDB extends DBWrapper {
      * @return array
      */
     public function getAllTags () {
-        $sql = 'SELECT * FROM tag';
+        $sql = 'SELECT * FROM tag ORDER BY id DESC';
         $stmt = $this->pdo->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

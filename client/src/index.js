@@ -27,12 +27,12 @@ const store = configureStore(initialState);
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router history={history}>
-            <Route path="/" component={App}>
-                <IndexRoute component={Records} />
-                <Route path="tags" component={Tags} />
-                <Route path="*" component={NotFound} />
+    <Provider store={ store }>
+        <Router history={ history }>
+            <Route path="/" component={ App }>
+                <IndexRoute component={ Records } />
+                <Route path="subjects" component={ Tags } />
+                <Route path="*" component={ NotFound } />
             </Route>
         </Router>
     </Provider>,

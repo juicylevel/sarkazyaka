@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Modal, Button } from 'react-bootstrap';
 
 import TagForm from './TagForm';
@@ -36,7 +37,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     handleChange: (values, d, props) => {
         console.log('handleChange');
-        dispatch(submit('tagForm'));
+        setTimeout(() => dispatch(submit('tagForm'), 0));
+        //ReactDOM.findDOMNode<HTMLFormElement>(this.refs.form).submit()
     }
 });
 

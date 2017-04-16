@@ -5,7 +5,6 @@
     border-top-width: 0px;
     border-left-width: 0px;
     border-right-width: 0px;
-    background-color: #00a8e8;
     line-height: 0px;
 }
 
@@ -23,7 +22,6 @@
 }
 
 .navbar-brand span {
-    color: white;
     font-weight: bold;
     font-size: 20px;
 }
@@ -33,17 +31,14 @@
     padding-bottom: 24px;
 }
 
-.navbar-default .navbar-nav > li > a {
-    color: white;
-}
-
 .navbar-toggle {
     margin-top: 17px;
     marin-bottom: 17px;
 }
 
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: white;
+.page-header h1 {
+    font-size: 26px;
+    margin-bottom: 0px;
 }
 
 .row-centered {
@@ -88,6 +83,17 @@
 
 .page-container {
     margin: 80px 20px;
+}
+
+/* app nav */
+
+.splitted-nav-button {
+    margin-right: 10px;
+    margin-top: 9px;
+}
+
+.splitted-nav-button .main-button {
+    width: 100%;
 }
 
 /* form */

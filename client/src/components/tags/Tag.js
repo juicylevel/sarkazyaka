@@ -1,13 +1,16 @@
 import React from 'react';
-import { hexToRGB } from '../../utils/color';
+import hexRgb from 'hex-rgb';
 
-const getStyle = (color) => ({
-    color: color,
-    backgroundColor: hexToRGB(color, 0.2, true)
-});
+const getStyle = (color) => {
+    const rgb = hexRgb(color);
+    return {
+        color: color,
+        backgroundColor: 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ', 0.2)'
+    }
+};
 
 const Tag = (props) => (
-    <div className="tag" style={ getStyle(props.color) }>
+    <div className="tag" style={ getStyle(props.color) } onClick={ props.onClick.bind(null, props.id) }>
         <input className={ props.selectable ? 'tag-select' : 'hidden' }
             type="checkbox"
             title="Выбрать"
@@ -30,7 +33,9 @@ Tag.defaultProps = {
     color: '#00ff00',
     selectable: false,
     editable: false,
-    removable: false
+    removable: false,
+    onClick: () => {},
+    onEdit: () => {}
 };
 
 export default Tag;
