@@ -59,7 +59,7 @@ if (!empty($actionClass)) {
     }
 }
 
-//sleep(1);
+sleep(3);
 
 echo json_encode($response, JSON_NUMERIC_CHECK);
 

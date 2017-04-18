@@ -1,8 +1,14 @@
-import * as types from '../constants/ActionTypes';
+import * as ActionTypes from '../constants/ActionTypes';
 
-const subject = (subject = {}, action) => {
+const initialState = {
+    title: null,
+    display: false,
+    data: {}
+};
+
+const subject = (subject = initialState, action) => {
     switch (action.type) {
-        case types.CREATE_SUBJECT:
+        case ActionTypes.CREATE_SUBJECT:
             return { 
                 data: { 
                     color: '#B8E986'
@@ -10,15 +16,15 @@ const subject = (subject = {}, action) => {
                 title: 'Новая тема',
                 display: true
             };
-        case types.EDIT_SUBJECT:
+        case ActionTypes.EDIT_SUBJECT:
             return { 
                 data: action.data,
                 title: 'Редактирование ' + action.data.name,
                 display: true
             };
-        case types.CLOSE_SUBJECT:
+        case ActionTypes.CLOSE_SUBJECT:
             return {
-                display: false
+                ...initialState
             };
         default:
             return subject;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { submit } from 'redux-form';
+import { submit, isSubmitting } from 'redux-form';
 import { Modal, Button } from 'react-bootstrap';
 import SubjectForm from './SubjectForm';
-import IconLabel from '../common/IconLabel';
+import BusyButton from '../common/BusyButton';
 import { saveSubject, closeSubject } from '../../actions/subject';
 
 const SubjectEditorForm = connect(
@@ -12,7 +12,7 @@ const SubjectEditorForm = connect(
     })
 )(SubjectForm);
 
-const SubjectEditorWindow = ({ show, subject, handleSaveButton, handleSave, handleClose }) => (
+const SubjectEditorWindow = ({ show, subject, submitting, handleSaveButton, handleSave, handleClose }) => (
     <Modal show={ show } onHide={ handleClose }>
         <Modal.Header closeButton>
             <Modal.Title>{ subject.title }</Modal.Title>
@@ -21,16 +21,23 @@ const SubjectEditorWindow = ({ show, subject, handleSaveButton, handleSave, hand
             <SubjectEditorForm onSubmit={ handleSave} />
         </Modal.Body>
         <Modal.Footer>
-            <Button onClick={ handleSaveButton } bsStyle="info">
-                <IconLabel icon="save" text="Сохранить" />
-            </Button>
+            <BusyButton 
+                bsStyle="info" 
+                disabled={ submitting } 
+                busy={ submitting }
+                text="Сохранить"
+                progressText="Сохранение..."
+                icon="save"
+                onClick={ handleSaveButton } 
+            />
             <Button onClick={ handleClose }>Отмена</Button>
         </Modal.Footer>
     </Modal>
 );
 
 const mapStateToProps = (state) => ({
-    subject: state.subject
+    subject: state.subject,
+    submitting: isSubmitting('subjectForm')(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

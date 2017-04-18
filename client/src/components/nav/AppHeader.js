@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { Navbar } from 'react-bootstrap';
 import SplittedNavButton from './SplittedNavButton';
-import IconLabel from '../common/IconLabel';
 import { displayRecords, createRecord } from '../../actions/record';
 import { displaySubjects, createSubject } from '../../actions/subject';
 
@@ -34,8 +33,7 @@ const AppHeader = (props) => (
                     onClick={ props.handleClickSubjects } 
                     onOption={ props.handleCreateSubject } 
                 />
-            </Navbar.Form>
-            
+            </Navbar.Form> 
         </Navbar.Collapse>
     </Navbar>
 );
