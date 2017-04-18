@@ -9,8 +9,12 @@ export const displaySubjects = () => dispatch => {
 
 export const fetchSubjects = () => {
     return dispatch => {
-        api.getAllTags().then((tags) => {
-            dispatch({ type: ActionTypes.RECEIVE_ALL_TAGS, tags: tags });
+        dispatch({ type: ActionTypes.LOAD_ALL_SUBJECTS });
+
+        api.getAllSubjects().then((subjects) => {
+            dispatch({ type: ActionTypes.LOAD_ALL_SUBJECTS_SUCCESS, data: subjects });
+        }, error => {
+            dispatch({ type: ActionTypes.LOAD_ALL_SUBJECTS_ERROR });
         });
     }
 }
@@ -21,7 +25,7 @@ export const createSubject = () => ({
 
 export const editSubject = (id) => {
     return (dispatch, getState) => {
-        const subject = _.find(getState().tags, tag => tag.id === id);
+        const subject = _.find(getState().subjects.data, subject => subject.id === id);
         subject && dispatch({ 
             type: ActionTypes.EDIT_SUBJECT, 
             data: subject

@@ -20,13 +20,11 @@ const request = (config) => (
     })
 );
 
-export const getAllTags = () => (
+export const getAllSubjects = () => (
     request({
         method: 'GET',
         params: {
-            request: 'getAllTags', 
-            limit: 10, 
-            offset: 0
+            request: 'getAllTags'
         }
     })
 );

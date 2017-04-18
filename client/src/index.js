@@ -8,7 +8,7 @@ import './index.css';
 
 import App from './App';
 import Records from './components/Records';
-import Tags from './components/tags/Tags';
+import Subjects from './components/subject/Subjects';
 import NotFound from './components/NotFound';
 
 import { Provider } from 'react-redux';
@@ -31,7 +31,7 @@ ReactDOM.render(
         <Router history={ history }>
             <Route path="/" component={ App }>
                 <IndexRoute component={ Records } />
-                <Route path="subjects" component={ Tags } />
+                <Route path="subjects" component={ Subjects } />
                 <Route path="*" component={ NotFound } />
             </Route>
         </Router>

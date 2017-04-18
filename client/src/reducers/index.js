@@ -2,12 +2,12 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
 import records from './records';
-import tags from './tags';
+import subjects from './subjects';
 import subject from './subject';
 
 const rootReducer = combineReducers({
     records: records,
-    tags: tags,
+    subjects: subjects,
     subject: subject,
     form: formReducer,
     routing: routerReducer

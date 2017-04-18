@@ -106,9 +106,9 @@
     cursor: pointer;
 }
 
-/* tags */
+/* subjects */
 
-.tag {
+.subject {
     display: inline-block;
     background-color: rgba(255, 0, 0, 0.2);
     color: rgba(255, 0, 0, 1);
@@ -118,7 +118,7 @@
     cursor: pointer;
 }
 
-.tag-select {
+.subject-select {
     vertical-align: text-bottom;
     width: 16px;
     height: 16px;
@@ -126,14 +126,14 @@
     cursor: pointer;
 }
 
-.tag-name {
+.subject-name {
     margin: 0 2px 0 2px;
 }
 
-.tag-edit {
+.subject-edit {
     margin-right: 1px;
 }
 
-.tag-remove {
+.subject-remove {
 
 }
